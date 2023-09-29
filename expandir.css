@@ -1,0 +1,55 @@
+/* ignore */
+body {
+    margin: 0;
+  }
+  
+  #grid {
+    height: 100vh;
+  }
+  
+  #left {
+    background: crimson;
+  }
+  
+  #right {
+    background: navajowhite;
+    border: 3rem solid rgb(0 0 0 / 10%);
+  }
+  
+  /* the magic */
+  #grid {
+    transition: 300ms;
+    display: grid;
+    grid-template-columns: 48px auto;
+  }
+  
+  #grid:has(#left:hover) {
+    grid-template-columns: 30% auto;
+  }
+  /* magic + CSS variable */
+  #grid {
+    transition: 300ms;
+    display: grid;
+    grid-template-columns: var(--left, 48px) auto;
+  }
+  
+  #grid:has(#left:hover) {
+    --left: 30%;
+  }
+  .cuatro{
+    column-count:3;
+    padding: 10px;
+  }
+  .circulo{
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+    border: 10px solid;
+    clip-path: circle(50% at 0 0);
+    transition: all 3s ease;
+}
+.circulo:hover{
+    clip-path: circle(100%);
+    cursor: pointer;
+    background-color: rgb(246, 241, 241);
+}
